@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khảo sát đánh giá giảng viên</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 900px;
+        }
+        h2 { text-align: center; color: #2c3e50; text-transform: uppercase; }
+        .info-section { margin-bottom: 25px; }
+        .info-group { margin-bottom: 10px; }
+        label { font-weight: 600; display: inline-block; width: 150px; }
+        input[type="text"] { padding: 6px; width: 300px; border: 1px solid #ddd; border-radius: 4px; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #e0e0e0; padding: 10px; text-align: center; }
+        th { background-color: #3498db; color: white; }
+        td:first-child { text-align: left; font-weight: 500; width: 40%; }
+        
+        .result-section { margin-top: 20px; font-weight: bold; font-size: 1.1em; color: #e67e22; }
+        #submitBtn { 
+            display: block; margin: 25px auto; padding: 10px 30px; 
+            background: #27ae60; color: white; border: none; 
+            border-radius: 5px; cursor: pointer; font-size: 16px;
+        }
+        #submitBtn:hover { background: #219150; }
+        
+        .json-box {
+            background: #2d3436; color: #fab1a0; padding: 20px;
+            border-radius: 8px; font-family: 'Courier New', monospace;
+            white-space: pre-wrap; margin-top: 15px; display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Khảo sát đánh giá giảng viên</h2>
+
+    <div class="info-section">
+        <div class="info-group">
+            <label>Tên môn học:</label>
+            <input type="text" id="courseName" placeholder="Nhập tên môn học">
+        </div>
+        <div class="info-group">
+            <label>Tên giảng viên:</label>
+            <input type="text" id="teacherName" placeholder="Nhập tên giảng viên">
+        </div>
+        <div class="info-group">
+            <label>Họ tên sinh viên:</label>
+            <input type="text" id="studentName" placeholder="Nhập tên của bạn">
+        </div>
+        <div class="info-group">
+            <label>Ngày giờ gửi form:</label>
+            <span id="submitTime" style="color: #555;"></span>
+        </div>
+    </div>
+
+    <table id="surveyTable">
+        <thead>
+            <tr>
+                <th>Tiêu chí</th>
+                <th>1 (Rất kém)</th>
+                <th>2 (Kém)</th>
+                <th>3 (Trung bình)</th>
+                <th>4 (Tốt)</th>
+                <th>5 (Rất tốt)</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+
+    <div class="result-section">
+        Trung bình điểm của giảng viên: <span id="averageScoreText">Chưa hoàn thành đánh giá</span>
+    </div>
+
+    <button type="button" id="submitBtn">Gửi Khảo Sát</button>
+
+    <div id="jsonOutput">
+        <h3>Dữ liệu khảo sát dưới dạng JSON:</h3>
+        <div class="json-box" id="jsonContent"></div>
+    </div>
+</div>
+
+<script src="script2.js"></script>
+</body>
+</html>
